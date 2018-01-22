@@ -1,37 +1,53 @@
-## Welcome to GitHub Pages
+# Choko Lait
 
-You can use the [editor on GitHub](https://github.com/chokomancarr/ChokoLait/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+ChokoLait (pronounced choko-light) is an include-only game engine library for C++11.  
+The full game engine (with editor UI) along with the source is available at [the project's github page](https://github.com/chokomancarr/ChokoEngine).  
+Note that this Lait version will not contain certain functions otherwise contained in the full ChokoEngine.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+ChokoLait currently supports Windows.
 
-### Markdown
+## Usage
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+A minimal usage example is as follows.
 
-```markdown
-Syntax highlighted code block
+```main.cpp
+#define PLATFORM_WIN
+#include "ChokoLait.h"
 
-# Header 1
-## Header 2
-### Header 3
+Font font = Font("C:\\arial.ttf");
+void updateFunc();
+void paintFunc();
 
-- Bulleted
-- List
+int main () {
+    ChokoLait::Init(800, 600);
 
-1. Numbered
-2. List
+    while (1) {
+        ChokoLait::Update(&updateFunc);
+        ChokoLait::Paint(&paintFunc);
+    }
+}
 
-**Bold** and _Italic_ and `Code` text
+void updateFunc() {
+    Debug::Message("Tick, tock!");
+}
 
-[Link](url) and ![Image](src)
+void paintFunc() {
+    UI::Label(10, 10, 12, "Hello, world!", &font);
+}
+
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Downloads
 
-### Jekyll Themes
+[Link To Github Release](https://undefin.ed)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/chokomancarr/ChokoLait/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+The current version is ???.
 
-### Support or Contact
+## Something is broken
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+  Open an issue in the github project page. Or, alternatively, tweet to me if you want it resolved quicker.  
+  Feature suggestions are welcome on Twitter.
+
+---
+
+[Twitter](https://twitter.com/chokomancarr)
