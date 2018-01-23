@@ -14,27 +14,24 @@ A minimal usage example is as follows.
 #define PLATFORM_WIN
 #include "ChokoLait.h"
 
-Font font = Font("C:\\arial.ttf");
-void updateFunc();
+Font* font;
+
 void paintFunc();
 
-int main () {
-    ChokoLait::Init(800, 600);
-
-    while (1) {
-        ChokoLait::Update(&updateFunc);
-        ChokoLait::Paint(&paintFunc);
-    }
-}
-
-void updateFunc() {
-    Debug::Message("Tick, tock!");
+int main(int argc, char **argv) {
+	ChokoLait::Init(1024, 600);
+	font = new Font("C:\\arial.ttf");
+	font->Align(ALIGN_TOPLEFT);
+	
+	while (ChokoLait::alive()) {
+		ChokoLait::Update();
+		ChokoLait::Paint(&paintFunc);
+	}
 }
 
 void paintFunc() {
-    UI::Label(10, 10, 12, "Hello, world!", &font);
+	UI::Label(10, 10, 20, "Hello, world!", font, white());
 }
-
 ```
 
 ## Downloads

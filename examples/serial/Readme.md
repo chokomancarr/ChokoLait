@@ -5,7 +5,7 @@ This file demonstrates how to connect and receive data from a COM port (In this 
 ```cpp
 SerialPort::GetNames();
 SerialPort::Connect();
-SerialPort::Read()
-SerialPort::Write()
+SerialPort::Read();
+SerialPort::Write();
 SerialPort::Disconnect();
 ```
